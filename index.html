@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta name="theme-color" content="#58cc02">
+
+    <title>Reset</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Day.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <i data-lucide="sprout"></i>
+                </div>
+
+                <span>reset</span>
+            </div>
+
+            <button
+                class="icon-button"
+                id="settingsButton"
+                aria-label="Configurações"
+            >
+                <i data-lucide="settings"></i>
+            </button>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <main>
+
+            <!-- HERO -->
+
+            <section class="hero-card">
+
+                <div class="hero-text">
+
+                    <span class="eyebrow">
+                        SUA JORNADA
+                    </span>
+
+                    <h1>
+                        Continue crescendo.
+                    </h1>
+
+                    <p>
+                        Um dia de cada vez.
+                    </p>
+
+                </div>
+
+                <div class="plant">
+                    🌱
+                </div>
+
+            </section>
+
+
+            <!-- STATS -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon streak">
+                        <i data-lucide="flame"></i>
+                    </div>
+
+                    <div>
+                        <strong id="streakValue">0</strong>
+                        <span>dias</span>
+                    </div>
+
+                    <small>
+                        sequência
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon xp">
+                        <i data-lucide="star"></i>
+                    </div>
+
+                    <div>
+                        <strong id="xpValue">0</strong>
+                        <span>XP</span>
+                    </div>
+
+                    <small>
+                        total
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEVEL -->
+
+            <section class="level-card">
+
+                <div class="level-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            NÍVEL
+                        </span>
+
+                        <h2 id="levelName">
+                            Semente
+                        </h2>
+                    </div>
+
+                    <strong id="levelNumber">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="xp-bar">
+
+                    <div
+                        class="xp-fill"
+                        id="xpFill"
+                    ></div>
+
+                </div>
+
+                <div class="xp-info">
+
+                    <span id="currentLevelXP">
+                        0 XP
+                    </span>
+
+                    <span id="nextLevelXP">
+                        100 XP
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- MISSÃO -->
+
+            <section class="section">
+
+                <div class="section-title">
+
+                    <div>
+                        <span class="eyebrow">
+                            HOJE
+                        </span>
+
+                        <h2>
+                            Sua missão
+                        </h2>
+                    </div>
+
+                    <span
+                        class="mission-count"
+                        id="missionCount"
+                    >
+                        0/1
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="mission-card"
+                    id="missionCard"
+                >
+
+                    <div class="mission-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+
+                    <div class="mission-content">
+
+                        <h3 id="missionTitle">
+                            Carregando...
+                        </h3>
+
+                        <p id="missionDescription">
+                            ...
+                        </p>
+
+                        <button
+                            class="primary-button"
+                            id="completeMission"
+                        >
+                            <i data-lucide="check"></i>
+                            Concluir
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PAUSA -->
+
+            <section class="pause-card">
+
+                <div class="pause-icon">
+                    <i data-lucide="pause-circle"></i>
+                </div>
+
+                <div class="pause-text">
+
+                    <h3>
+                        Precisa de uma pausa?
+                    </h3>
+
+                    <p>
+                        Tire alguns minutos para respirar,
+                        mudar de ambiente ou fazer outra atividade.
+                    </p>
+
+                </div>
+
+                <button
+                    class="secondary-button"
+                    id="pauseButton"
+                >
+                    Fazer pausa
+                </button>
+
+            </section>
+
+
+            <!-- HISTÓRICO -->
+
+            <section class="section">
+
+                <div class="section-title">
+
+                    <div>
+                        <span class="eyebrow">
+                            PROGRESSO
+                        </span>
+
+                        <h2>
+                            Últimos dias
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="calendar"
+                    id="calendar"
+                ></div>
+
+            </section>
+
+        </main>
+
+
+        <!-- BOTTOM NAV -->
+
+        <nav class="bottom-nav">
+
+            <button class="nav-item active">
+
+                <i data-lucide="home"></i>
+
+                <span>
+                    Hoje
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                id="progressButton"
+            >
+
+                <i data-lucide="bar-chart-3"></i>
+
+                <span>
+                    Progresso
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                id="achievementsButton"
+            >
+
+                <i data-lucide="trophy"></i>
+
+                <span>
+                    Conquistas
+                </span>
+
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <!-- MODAL DE PAUSA -->
+
+    <div
+        class="modal hidden"
+        id="pauseModal"
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                id="closePause"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="modal-icon">
+                🫧
+            </div>
+
+            <h2>
+                Só por agora.
+            </h2>
+
+            <p>
+                Você não precisa resolver tudo neste momento.
+                Vamos fazer uma pequena pausa.
+            </p>
+
+            <div class="timer" id="timer">
+                02:00
+            </div>
+
+            <div class="pause-options">
+
+                <button
+                    class="option-button"
+                    data-action="breathe"
+                >
+                    🫁 Respirar
+                </button>
+
+                <button
+                    class="option-button"
+                    data-action="walk"
+                >
+                    🚶 Andar um pouco
+                </button>
+
+                <button
+                    class="option-button"
+                    data-action="music"
+                >
+                    🎵 Ouvir música
+                </button>
+
+                <button
+                    class="option-button"
+                    data-action="water"
+                >
+                    💧 Tomar água
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        <span id="toastText">
+            +10 XP
+        </span>
+    </div>
+
+
+    <!-- SCRIPTS -->
+
+    <script src="js/state.js"></script>
+    <script src="js/missions.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
