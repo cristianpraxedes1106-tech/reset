@@ -61,9 +61,17 @@ const missions = [
 
 function getDailyMission() {
 
+    const startOfYear =
+        dayjs().startOf("year");
+
+    const today =
+        dayjs();
+
     const day =
-        dayjs().dayOfYear?.() ||
-        dayjs().date();
+        today.diff(
+            startOfYear,
+            "day"
+        );
 
     const index =
         day % missions.length;
